@@ -191,7 +191,7 @@ namespace Statement
 		 int[] four = fileScore[1].Split(pattern, StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x)).ToArray();
 		 int[] three = fileScore[2].Split(pattern, StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x)).ToArray();
 		 int[] two = fileScore[3].Split(pattern, StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x)).ToArray();
-		 // vip - количество контрактников которым нельзя ставить "2"            
+		 // vip - количество контрактников которым нельзя ставить "2" (в данной версии программы этот параметр не нужен)
 		 //int[] vip = fileScore[4].Split(pattern, StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x)).ToArray();
 
 		 Random r = new Random();
@@ -283,26 +283,17 @@ namespace Statement
 				  break;
 			}
 		 }
-
-		 //Console.SetWindowSize(120, 30);
-		 //Console.WriteLine("ФИО                   итог за теорию    оценки за практику    итог практика   итоговая");
+		 
 		 using (StreamWriter end = new StreamWriter("ведомость.txt"))
 		 {
 			end.WriteLine("Звание\tФамилия\tТеоритическая подготовка\tОценка\tПрактическая подготовка\tОценка\tОбщая оценка");
 			for (int i = 0; i < fio.Length; i++)
 			{
-			   end.WriteLine(($"{fio[i],10}\t{theoryAnswer[i],10}\t{theoryScore[i]}\t{practicalAnswer[i]}\t{practicalScore[i]}\t{overallScore[i]}"));
-			   //Console.WriteLine($"{fio[i]}\t{theoryAnswer[i]}\t{theoryScore[i],5}\t{practicalAnswer[i],10} \t{practicalScore[i],10}\t{overallScore[i],10}");
+			   end.WriteLine(($"{fio[i],10}\t{theoryAnswer[i],10}\t{theoryScore[i]}\t{practicalAnswer[i]}\t{practicalScore[i]}\t{overallScore[i]}"));			   
 			}
 		 }
-
 		 Console.WriteLine("Программа завершена :-)) ");
-		 Thread.Sleep(1000);
-		 //Console.ReadKey();
-
-
-		 //TODO 1.
-		 //     2. веделение постоянных двоешников(наверное по номерам)
+		 Thread.Sleep(1000);		 
 	  }
    }
 }
