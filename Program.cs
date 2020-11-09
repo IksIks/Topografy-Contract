@@ -242,7 +242,7 @@ namespace Statement
 				  theoryScore[j] = random;
 				  break;
 			   case 4:
-				  random = r.Next(3, 6);      // изменил 3 на 4 чтоб было поменьше оценок 54245
+				  random = r.Next(3, 6);
 				  theoryScore[j] = random;
 				  break;
 			   case 3:
@@ -261,7 +261,7 @@ namespace Statement
 		 score2 = generetanigPrakticalAnswers(2, 5);
 
 		 string[] theoryAnswer = new string[fio.Length];
-		 for (int i = 0; i < theoryScore.Length; i++)
+		 for (int i = 0; i < theoryAnswer.Length; i++)
 		 {
 			switch (theoryScore[i])
 			{
