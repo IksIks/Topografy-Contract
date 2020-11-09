@@ -83,8 +83,8 @@ namespace Statement
 		 string[] answers = new string[500];
 		 double[] values = { 5, 4, 3, 2 };
 		 int next = 0;
-		 if ((score == 5) || (score == 4))           //
-			for (int i = 0; i < values.Length - 1; i++)  //фильтр генерации оценок только из 5 4 3. Length -1 уберает
+		 if ((score == 5) || (score == 4) || (score == 3))           //
+			for (int i = 0; i < values.Length - 1; i++)  //фильтр генерации оценок только из 5 4 3. Length -1 убирает
 														 //2, чтоб не было оценок вида 5 5 5 2 5 итог 4
 			{                                           //
 			   for (int j = 0; j < values.Length - 1; j++)
@@ -199,7 +199,7 @@ namespace Statement
 		 int random = 0;
 		 string[] fio = File.ReadAllLines("ФИО.txt");
 		 int[] temp = new int[fio.Length];
-		 int[] overallScore = fillingArray(five, fillingArray(four, fillingArray(three, fillingArray(two, temp /*vip[0]), vip[0]*/))));
+		 int[] overallScore = fillingArray(five, fillingArray(four, fillingArray(three, fillingArray(two, temp))));
 		 int[] practicalScore = new int[fio.Length];
 		 Array.Copy(overallScore, practicalScore, fio.Length);
 
@@ -242,7 +242,7 @@ namespace Statement
 				  theoryScore[j] = random;
 				  break;
 			   case 4:
-				  random = r.Next(4, 6);      // изменил 3 на 4 чтоб было поменьше оценок 54245
+				  random = r.Next(3, 6);      // изменил 3 на 4 чтоб было поменьше оценок 54245
 				  theoryScore[j] = random;
 				  break;
 			   case 3:
@@ -261,7 +261,7 @@ namespace Statement
 		 score2 = generetanigPrakticalAnswers(2, 5);
 
 		 string[] theoryAnswer = new string[fio.Length];
-		 for (int i = 0; i < practicalAnswer.Length; i++)
+		 for (int i = 0; i < theoryScore.Length; i++)
 		 {
 			switch (theoryScore[i])
 			{
